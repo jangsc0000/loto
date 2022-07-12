@@ -1,0 +1,45 @@
+name: Buy
+on: 
+  schedule:
+    - cron: "0 0 * * 6"
+
+jobs:
+  deploy-blog:
+    runs-on: ubuntu-latest
+    steps:
+      #----------------------------------------------
+      #       check-out repo and set-up python
+      #----------------------------------------------
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        id: setup-python
+        with:
+          python-version: "3.10"
+      #----------------------------------------------
+      #               install packages
+      #----------------------------------------------
+      - name: Install packages
+        run: |
+          sudo apt-get -y install google-chrome-stable
+      #----------------------------------------------
+      #         install & configure poetry  
+      #----------------------------------------------
+      - name: Install poetry
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+      #----------------------------------------------
+      # install dependencies if cache does not exist
+      #----------------------------------------------
+      - name: Install dependencies
+        run: |
+          cd ${GITHUB_WORKSPACE}
+          poetry install --no-interaction --no-root
+      #----------------------------------------------
+      #                buy lotto
+      #----------------------------------------------
+      - name: Run loconotion
+        run: |
+          cd ${GITHUB_WORKSPACE}
+          poetry run python lotto_buy.py
