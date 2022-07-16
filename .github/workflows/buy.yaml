@@ -4,7 +4,7 @@ on:
     - cron: "0 0 * * 6"
 
 jobs:
-  deploy-blog:
+  buy-lotto:
     runs-on: ubuntu-latest
     steps:
       #----------------------------------------------
@@ -39,7 +39,10 @@ jobs:
       #----------------------------------------------
       #                buy lotto
       #----------------------------------------------
-      - name: Run loconotion
+      - name: Buy lotto
+        env: 
+          LOTTO_ID : ${{secret.LOTTO_ID}}
+          LOTTO_PW : ${{secret.LOTTO_PW}}
         run: |
           cd ${GITHUB_WORKSPACE}
           poetry run python lotto_buy.py
