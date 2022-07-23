@@ -1,7 +1,7 @@
 name: Buy
 on: 
   schedule:
-    - cron: "0 0 * * 6"
+    - cron: "0 5 * * 6"
 
 jobs:
   buy-lotto:
@@ -41,8 +41,8 @@ jobs:
       #----------------------------------------------
       - name: Buy lotto
         env: 
-          LOTTO_ID : ${{secret.LOTTO_ID}}
-          LOTTO_PW : ${{secret.LOTTO_PW}}
+          LOTTO_ID : ${{secrets.LOTTO_ID}}
+          LOTTO_PW : ${{secrets.LOTTO_PW}}
         run: |
           cd ${GITHUB_WORKSPACE}
           poetry run python lotto_buy.py
