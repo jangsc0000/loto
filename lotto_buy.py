@@ -55,7 +55,7 @@ class Lotto:
         deposit_url = "https://m.dhlottery.co.kr/payment.do?method=payment"
         self.driver.get(deposit_url)
         select = Select(self.driver.find_element(value="Amt"))
-        select.select_by_value("10000")
+        select.select_by_value("30000")
         self.driver.execute_script("nicepayStart()")
 
 
