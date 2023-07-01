@@ -61,8 +61,8 @@ class Lotto:
 
 if __name__ == "__main__":
 
-#     lotto_nums = LottoGen(parse_weights()).gen()
-    lotto_nums = LottoGen().gen()
+    lotto_nums = LottoGen(parse_weights()).gen()
+    # lotto_nums = LottoGen().gen()
 
     id = os.environ["LOTTO_ID"]
     pw = os.environ["LOTTO_PW"]
