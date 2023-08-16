@@ -23,14 +23,12 @@ class Lotto:
         self.driver.execute_script("loginpage()")
 
     def init_chrome_driver(self):
-        chromedriver_path = chromedriver_autoinstaller.install()
+        chromedriver_autoinstaller.install()
 
         options = webdriver.ChromeOptions()
         options.add_argument("headless")
 
-        self.driver = webdriver.Chrome(
-            executable_path=str(chromedriver_path), options=options
-        )
+        self.driver = webdriver.Chrome(options=options)
 
     def buy(self, lotto_nums: list):
         buy_url = "https://ol.dhlottery.co.kr/olotto/game/game645.do"
