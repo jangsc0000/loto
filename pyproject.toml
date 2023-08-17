@@ -6,7 +6,7 @@ authors = ["jangsc0000 <jangsc0000@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-chromedriver-autoinstaller = "^0.6.1"
+chromedriver-autoinstaller = "*"
 selenium = "^4.3.0"
 requests = "^2.28.1"
 bs4 = "^0.0.1"
