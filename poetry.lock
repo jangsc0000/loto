@@ -78,7 +78,7 @@ unicode_backport = ["unicodedata2"]
 
 [[package]]
 name = "chromedriver-autoinstaller"
-version = "0.3.1"
+version = "*"
 description = "Automatically install chromedriver that supports the currently installed version of chrome."
 category = "main"
 optional = false
